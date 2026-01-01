@@ -10,7 +10,7 @@ local phoneY = 600
 local phoneActive = false
 local phoneSpeed = 400
 local currentPhoneImg
-local phoneState = "sliding" -- "sliding", "shaking", "waiting", "done", "sliding_away"
+local phoneState = "sliding"
 local phoneTimer = 0
 local shakeOffset = 0
 
@@ -102,7 +102,7 @@ function love.update(dt)
         end
     end
 
-    -- Fade-in logic for all components
+    -- Fade in logic for all components
     if showBoard and boardAlpha < 1 then
         boardAlpha = boardAlpha + (1.5 * dt)
         if boardAlpha > 1 then boardAlpha = 1 end
@@ -120,7 +120,7 @@ function love.draw()
     love.graphics.draw(cloud, (cloudX + cloud:getWidth()) * s, 150 * s, 0, s, s)
     love.graphics.draw(window, 0, 0, 0, s, s)
 
-    -- Everything here fades in together
+    -- Group Fade in
     if showBoard then
         love.graphics.setColor(1, 1, 1, boardAlpha)
         love.graphics.draw(emptyboard, 0, 60 * s, 0, s, s)
